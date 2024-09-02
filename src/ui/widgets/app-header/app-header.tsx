@@ -8,6 +8,7 @@ import {
   AvatarImage,
 } from "@/ui/shared/shadcn/ui/avatar";
 import { ProfileMenu } from "./profile-menu";
+import { signinRoute } from "@/routes/auth/signin-route";
 
 export async function AppHeader() {
   return (
@@ -24,7 +25,7 @@ export async function AppHeader() {
         </Link>
         <div className="flex space-x-5">
           <ToggleThemeButton />
-          <Link href={"/"}>
+          <Link href={signinRoute.getPath()}>
             <Button>Войти</Button>
           </Link>
           <ProfileMenu>
