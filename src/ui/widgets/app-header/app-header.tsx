@@ -9,8 +9,11 @@ import {
 } from "@/ui/shared/shadcn/ui/avatar";
 import { ProfileMenu } from "./profile-menu";
 import { signinRoute } from "@/routes/auth/signin-route";
+import { authService } from "@/service/auth/authService";
 
 export async function AppHeader() {
+  const user = await authService.getPrincipal();
+
   return (
     <header className="w-full border-b">
       <div className="container flex justify-between  h-14 items-center">
@@ -25,15 +28,20 @@ export async function AppHeader() {
         </Link>
         <div className="flex space-x-5">
           <ToggleThemeButton />
-          <Link href={signinRoute.getPath()}>
-            <Button>Войти</Button>
-          </Link>
-          <ProfileMenu>
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-          </ProfileMenu>
+          {!user ? (
+            <Link href={signinRoute.getPath()}>
+              <Button>Войти</Button>
+            </Link>
+          ) : (
+            <ProfileMenu>
+              <Avatar>
+                <AvatarImage src={user.image || undefined} alt="@shadcn" />
+                <AvatarFallback>
+                  {user.name?.slice(0, 1).toUpperCase()}
+                </AvatarFallback>
+              </Avatar>
+            </ProfileMenu>
+          )}
         </div>
       </div>
     </header>
