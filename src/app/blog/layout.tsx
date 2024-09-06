@@ -14,7 +14,7 @@ export default function BlogLayout({
   return (
     <main>
       <AppHeader />
-      <section className="container">{children}</section>
+      <section className="container pt-6">{children}</section>
     </main>
   );
 }
