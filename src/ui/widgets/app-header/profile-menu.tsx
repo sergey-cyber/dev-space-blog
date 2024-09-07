@@ -9,7 +9,7 @@ import {
 import { PropsWithChildren } from "react";
 import Link from "next/link";
 import { SignOut } from "./signout-button";
-import { profileRoute } from "@/routes/profile/profile-route";
+import { profileRoute } from "@/routes/self/self-route";
 
 export function ProfileMenu(props: PropsWithChildren) {
   return (
