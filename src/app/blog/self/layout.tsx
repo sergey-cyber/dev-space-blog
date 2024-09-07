@@ -5,7 +5,7 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/ui/shared/shadcn/ui/avatar";
-import { ProfileNavigation } from "@/ui/widgets/profile";
+import { SelfProfileNavigation } from "@/ui/features/self-profile";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 
@@ -19,12 +19,7 @@ export default async function ProfileLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const principal = await authService.getPrincipal();
-
-  if (!principal) {
-    // not authorized
-    return redirect(signinRoute.getPath());
-  }
+  const principal = await authService.getPrincipalStricktly();
 
   return (
     <section>
@@ -37,9 +32,9 @@ export default async function ProfileLayout({
             </AvatarFallback>
           </Avatar>
           <p className="text-center">{principal.name}</p>
-          <ProfileNavigation />
+          <SelfProfileNavigation />
         </div>
-        <div>{children}</div>
+        <div className="col-span-6">{children}</div>
       </div>
     </section>
   );
