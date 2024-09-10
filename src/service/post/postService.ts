@@ -4,8 +4,12 @@ import prismaClient from "@/service/prisma/prisma-client";
 export class PostService {
   constructor() {}
 
-  public search(params: Prisma.PostFindManyArgs) {
-    return prismaClient.post.findMany(params);
+  public search<T extends Pick<Prisma.PostFindManyArgs, "include">>(
+    params: Prisma.PostFindManyArgs & T,
+  ) {
+    return prismaClient.post.findMany(params) as Promise<
+      Prisma.PostGetPayload<T>[]
+    >;
   }
 }
 
