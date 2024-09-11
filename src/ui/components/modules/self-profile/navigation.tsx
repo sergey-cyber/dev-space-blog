@@ -1,7 +1,7 @@
 "use client";
 
 import { myPosts, personalInfoRoute } from "@/routes/self/self-route";
-import { Button } from "@/ui/shared/shadcn/ui/button";
+import { Button } from "@/ui/shadcn/ui/button";
 import { NotebookText, User } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

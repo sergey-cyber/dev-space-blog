@@ -1,10 +1,10 @@
-import { Badge } from "@/ui/shared/shadcn/ui/badge";
+import { Badge } from "@/ui/shadcn/ui/badge";
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/ui/shared/shadcn/ui/card";
+} from "@/ui/shadcn/ui/card";
 import { Prisma } from "@prisma/client";
 import Link from "next/link";
 

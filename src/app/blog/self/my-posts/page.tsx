@@ -1,8 +1,8 @@
 import { authService } from "@/service/auth/authService";
 import { postService } from "@/service/post/postService";
-import { PostListItem } from "@/ui/features/post";
-import { EmptyList } from "@/ui/shared/empty-list";
-import { Button } from "@/ui/shared/shadcn/ui/button";
+import { PostListItem } from "@/ui/components/modules/post";
+import { EmptyList } from "@/ui/components/shared/empty-list";
+import { Button } from "@/ui/shadcn/ui/button";
 import { Plus } from "lucide-react";
 
 export default async function MyPostsPage() {

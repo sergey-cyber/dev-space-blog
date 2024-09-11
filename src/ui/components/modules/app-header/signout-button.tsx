@@ -1,6 +1,6 @@
 "use client";
 
-import { DropdownMenuItem } from "@/ui/shared/shadcn/ui/dropdown-menu";
+import { DropdownMenuItem } from "@/ui/shadcn/ui/dropdown-menu";
 import { LogOut } from "lucide-react";
 import { logOut } from "@/server-actions/auth/actions";
 

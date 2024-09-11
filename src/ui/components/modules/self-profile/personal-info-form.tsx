@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/ui/shared/shadcn/ui/button";
+import { Button } from "@/ui/shadcn/ui/button";
 import {
   Form,
   FormControl,
@@ -13,8 +13,8 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/ui/shared/shadcn/ui/form";
-import { Input } from "@/ui/shared/shadcn/ui/input";
+} from "@/ui/shadcn/ui/form";
+import { Input } from "@/ui/shadcn/ui/input";
 import { User } from "@prisma/client";
 
 interface Props {

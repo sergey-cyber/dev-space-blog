@@ -1,12 +1,8 @@
 import { ToggleThemeButton } from "./toggle-theme-button";
 import Link from "next/link";
-import { Button } from "@/ui/shared/shadcn/ui/button";
+import { Button } from "@/ui/shadcn/ui/button";
 import { Orbit } from "lucide-react";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/ui/shared/shadcn/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/ui/shadcn/ui/avatar";
 import { ProfileMenu } from "./profile-menu";
 import { signinRoute } from "@/routes/auth/signin-route";
 import { authService } from "@/service/auth/authService";

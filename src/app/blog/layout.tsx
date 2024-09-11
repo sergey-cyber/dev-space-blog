@@ -1,4 +1,4 @@
-import { AppHeader } from "@/ui/widgets/app-header";
+import { AppHeader } from "@/ui/components/modules/app-header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -5,7 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/ui/shared/shadcn/ui/dropdown-menu";
+} from "@/ui/shadcn/ui/dropdown-menu";
 import { PropsWithChildren } from "react";
 import Link from "next/link";
 import { SignOut } from "./signout-button";
