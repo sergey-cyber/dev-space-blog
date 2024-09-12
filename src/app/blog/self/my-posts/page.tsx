@@ -22,7 +22,7 @@ export default async function MyPostsPage() {
       </div>
       <div>
         {posts.length ? (
-          posts.map((post) => <PostListItem post={post} />)
+          posts.map((post) => <PostListItem key={post.id} post={post} />)
         ) : (
           <EmptyList />
         )}

@@ -1,4 +1,11 @@
 {
-  "extends": "next/core-web-vitals",
-  "no-restricted-imports": ["error", { "paths": ["src/ui/widgets/*"] }]
+  "extends": "next/core-web-vitals"
+  // "rules": {
+  // "no-restricted-imports": [
+  // "error",
+  //{
+  // "patterns": ["@/ui/components/**/*", "!@/ui/**/*/index"]
+  //}
+  //]
+  //}
 }

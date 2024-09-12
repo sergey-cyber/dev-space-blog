@@ -27,6 +27,7 @@ export function SelfProfileNavigation() {
         const isActive = pathname === item.path;
         return (
           <Button
+            key={item.path}
             className={`flex justify-start text-base ${isActive ? "pointer-events-none" : ""} gap-2`}
             variant={isActive ? "outline" : "link"}
           >
