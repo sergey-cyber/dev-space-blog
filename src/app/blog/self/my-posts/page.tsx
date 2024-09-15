@@ -1,9 +1,11 @@
+import { createPostRoute } from "@/routes/self/self-route";
 import { authService } from "@/service/auth/authService";
 import { postService } from "@/service/post/postService";
 import { PostListItem } from "@/ui/components/modules/post";
 import { EmptyList } from "@/ui/components/shared/empty-list";
-import { Button } from "@/ui/shadcn/ui/button";
+import { Button, buttonVariants } from "@/ui/shadcn/ui/button";
 import { Plus } from "lucide-react";
+import Link from "next/link";
 
 export default async function MyPostsPage() {
   const principal = authService.getPrincipalStricktly();
@@ -15,10 +17,13 @@ export default async function MyPostsPage() {
   return (
     <section className="space-y-6">
       <div className="flex justify-end">
-        <Button>
+        <Link
+          href={createPostRoute.getPath()}
+          className={buttonVariants({ variant: "default" })}
+        >
           <Plus className="mr-2 h-4 w-4" />
           Добавить
-        </Button>
+        </Link>
       </div>
       <div>
         {posts.length ? (

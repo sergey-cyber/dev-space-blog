@@ -1,1 +1,1 @@
-export * from "./empty-list";
+export { EmptyList } from "./empty-list";
