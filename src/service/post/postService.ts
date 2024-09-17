@@ -11,7 +11,7 @@ export class PostService {
   }
 
   public search<T extends Pick<Prisma.PostFindManyArgs, "include">>(
-    params: Prisma.PostFindManyArgs & T,
+    params?: Prisma.PostFindManyArgs & T,
   ) {
     return this.client.post.findMany(params) as Promise<
       Prisma.PostGetPayload<T>[]

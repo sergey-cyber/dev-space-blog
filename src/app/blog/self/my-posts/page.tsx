@@ -25,13 +25,11 @@ export default async function MyPostsPage() {
           Добавить
         </Link>
       </div>
-      <div>
-        {posts.length ? (
-          posts.map((post) => <PostListItem key={post.id} post={post} />)
-        ) : (
-          <EmptyList />
-        )}
-      </div>
+      {posts.length ? (
+        posts.map((post) => <PostListItem key={post.id} post={post} />)
+      ) : (
+        <EmptyList />
+      )}
     </section>
   );
 }
