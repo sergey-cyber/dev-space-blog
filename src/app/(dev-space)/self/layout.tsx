@@ -1,7 +1,7 @@
 import { signinRoute } from "@/routes/auth/signin-route";
 import { authService } from "@/service/auth/authService";
 import { Avatar, AvatarFallback, AvatarImage } from "@/ui/shadcn/ui/avatar";
-import { SelfProfileNavigation } from "@/ui/components/modules/self-profile";
+import { SelfProfileNavigation } from "@/ui/components/self-profile";
 import { Metadata } from "next";
 import { redirect } from "next/navigation";
 

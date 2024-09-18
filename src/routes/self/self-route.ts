@@ -1,7 +1,7 @@
 import { RouteDef } from "../route-def";
 
 export const profileRoute: RouteDef = {
-  getPath: () => "/blog/self",
+  getPath: () => "/self",
 };
 
 export const personalInfoRoute: RouteDef = {

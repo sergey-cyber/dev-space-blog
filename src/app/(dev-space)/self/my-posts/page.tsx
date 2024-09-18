@@ -1,7 +1,7 @@
 import { createPostRoute } from "@/routes/self/self-route";
 import { authService } from "@/service/auth/authService";
 import { postService } from "@/service/post/postService";
-import { PostListItem } from "@/ui/components/modules/post";
+import { PostListItem } from "@/ui/components/post";
 import { EmptyList } from "@/ui/components/shared/empty-list";
 import { Button, buttonVariants } from "@/ui/shadcn/ui/button";
 import { Plus } from "lucide-react";
