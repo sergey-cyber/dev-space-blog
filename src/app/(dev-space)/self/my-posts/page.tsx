@@ -3,14 +3,14 @@ import { authService } from "@/service/auth/authService";
 import { postService } from "@/service/post/postService";
 import { PostListItem } from "@/ui/components/post";
 import { EmptyList } from "@/ui/components/shared/empty-list";
-import { Button, buttonVariants } from "@/ui/shadcn/ui/button";
+import { buttonVariants } from "@/ui/shadcn/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 
 export default async function MyPostsPage() {
-  const principal = authService.getPrincipalStricktly();
+  const principal = await authService.getPrincipalStricktly();
   const posts = await postService.search({
-    where: { authorId: (await principal).id },
+    where: { authorId: principal.id },
     include: { author: true },
   });
 
@@ -26,7 +26,9 @@ export default async function MyPostsPage() {
         </Link>
       </div>
       {posts.length ? (
-        posts.map((post) => <PostListItem key={post.id} post={post} />)
+        posts.map((post) => (
+          <PostListItem key={post.id} post={post} toPost="/" />
+        ))
       ) : (
         <EmptyList />
       )}

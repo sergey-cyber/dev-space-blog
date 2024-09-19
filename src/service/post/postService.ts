@@ -10,6 +10,10 @@ export class PostService {
     this.client = client;
   }
 
+  public get(id: string) {
+    return this.client.post.findUnique({ where: { id } });
+  }
+
   public search<T extends Pick<Prisma.PostFindManyArgs, "include">>(
     params?: Prisma.PostFindManyArgs & T,
   ) {

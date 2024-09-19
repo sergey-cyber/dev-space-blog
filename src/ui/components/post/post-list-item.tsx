@@ -10,9 +10,10 @@ import Link from "next/link";
 
 interface Props {
   post: Prisma.PostGetPayload<{ include: { author: true } }>;
+  toPost: string;
 }
 
-export function PostListItem({ post }: Props) {
+export function PostListItem({ post, toPost }: Props) {
   const formatter = new Intl.DateTimeFormat("ru", {
     dateStyle: "long",
     timeStyle: "short",
@@ -29,7 +30,7 @@ export function PostListItem({ post }: Props) {
           <span>{formatter.format(new Date(post.createdAt))}</span>
         </CardDescription>
         <CardTitle className="py-2">
-          <Link href={"/"}>{post.title}</Link>
+          <Link href={toPost}>{post.title}</Link>
         </CardTitle>
         {post.tags.length ? (
           <div className="flex gap-x-2">
