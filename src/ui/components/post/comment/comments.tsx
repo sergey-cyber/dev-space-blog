@@ -21,7 +21,7 @@ export async function Comments({ post }: Props) {
     <div className="container space-y-4 py-4">
       <h2 className="text-xl font-bold">{`Комментарии (${comments.length})`}</h2>
       {comments.map((comment) => (
-        <Comment comment={comment} />
+        <Comment key={comment.id} comment={comment} />
       ))}
     </div>
   );
