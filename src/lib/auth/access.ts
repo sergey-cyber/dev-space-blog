@@ -8,7 +8,7 @@ import { authService } from "../../service/auth/authService";
  * @returns {Function} A decorator that intercepts method calls and checks for roles.
  */
 
-export function access(requiredRoles: string[]) {
+export function Access(requiredRoles: string[]) {
   return function (
     target: any,
     propertyKey: string | symbol,

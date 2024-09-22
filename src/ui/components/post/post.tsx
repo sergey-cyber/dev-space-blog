@@ -12,11 +12,13 @@ import { Suspense } from "react";
 import { UserAvatar } from "../shared/user-avatar";
 import { UICodeBlock } from "./code-block";
 import { Prisma } from "@prisma/client";
+import { Comments, CommentsLoading } from "./comment";
+import { Separator } from "@/ui/shadcn/ui/separator";
 
 interface Props {
   post: Prisma.PostGetPayload<{ include: { author: true } }>;
 }
-const markdown = "## Hi, *Pluto*!";
+
 export function Post({ post }: Props) {
   const formatter = new Intl.DateTimeFormat("ru", {
     dateStyle: "long",
@@ -62,12 +64,12 @@ export function Post({ post }: Props) {
       </CardContent>
       {/* <CardFooter className="flex gap-x-2">
         <PostReactions post={post} />
-      </CardFooter>
+      </CardFooter> */}
 
       <Separator className="my-4" />
-      <Suspense fallback={<CommentsSkeleton />}>
-        <PostComments post={post} />
-      </Suspense> */}
+      <Suspense fallback={<CommentsLoading />}>
+        <Comments post={post} />
+      </Suspense>
     </Card>
   );
 }

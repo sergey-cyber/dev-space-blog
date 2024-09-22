@@ -2,8 +2,7 @@ import { Post, Prisma } from "@prisma/client";
 import _prismaClient from "@/service/prisma/prisma-client";
 import { IServiceClient } from "../client/IClient";
 import { Roles } from "@/entity/role/roles";
-import { access } from "../../lib/auth/access";
-import { DefaultArgs } from "@prisma/client/runtime/library";
+import { Access } from "../../lib/auth/access";
 
 export class PostService {
   private client;
@@ -15,14 +14,13 @@ export class PostService {
     return this.client.post.findUnique({ where: { id }, ...args });
   }
 
-  public search<T extends Prisma.PostInclude>(params?: {
-    where?: Prisma.PostWhereInput;
-    include: T;
-  }) {
+  public search<T extends Prisma.PostInclude>(
+    params?: Omit<Prisma.PostFindManyArgs, "include"> & { include: T },
+  ) {
     return this.client.post.findMany(params);
   }
 
-  @access([Roles.ADMIN, Roles.AUTHOR])
+  @Access([Roles.ADMIN, Roles.AUTHOR])
   public async createPost(post: Pick<Post, "title" | "authorId" | "content">) {
     return this.client.post.create({ data: post });
   }
